@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html ng-app="exampleApp1">
+<head>
+    <title>AngularJS Demo</title>
+    <link href="css/bootstrap.css" rel="stylesheet" />
+    <link href="css/bootstrap-theme.css" rel="stylesheet" />
+    <script src="js/angular.js"></script>
+    <script>
+
+       var myApp = angular.module("exampleApp1", []);
+
+        myApp.controller("dayCtrl", function ($scope) {
+            $scope.day = new Date().getDay();
+        });
+
+        myApp.controller("tomorrowCtrl", function ($scope) {
+            $scope.day = (new Date().getDay() + 1) % 7;
+        });
+
+        myApp.directive("highlight", function () {
+            return function (scope, element, attrs) {
+                if (scope.day == attrs["highlight"]) {
+                    element.css("color", "red");
+                } 
+            }
+        });
+        myApp.filter("dayName", function () {
+            var dayNames = ["Sunday", "Monday", "Tuesday", "Wednesday",
+                            "Thursday", "Friday", "Saturday"];
+            return function (input) {
+                return angular.isNumber(input) ? dayNames[input] : input;
+            };
+        });
+        myApp.directive("highlight", function ($filter) {
+        	var dayfil=$filter("dayName");
+            return function (scope, element, attrs) {
+                if (dayfil(scope.day) == attrs["highlight"]) {
+                    element.css("color", "red");
+                } 
+            }
+        });
+         
+       
+
+    </script>
+</head>
+<body> 
+    <div class="panel">
+        <div class="page-header">
+            <h3>AngularJS App</h3>
+        </div>
+        <h4 ng-controller="dayCtrl" highlight="Tuesday">
+            Today is {{day || "(unknown)" | dayName}}
+        </h4>
+        <h4 ng-controller="tomorrowCtrl">
+            Tomorrow is {{day || "(unknown)" | dayName}}
+        </h4>
+    </div>
+</body>
+</html>
+       

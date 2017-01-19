@@ -1,0 +1,20 @@
+<div >
+</br>
+</br>
+  <hr />
+new player name 	 <input type="text" ng-model="newname"></br></br>
+new player city  	<input type="text" ng-model="newcity"></br></br>
+
+<button ng-click="addPlayer()">ADD NEW PLAYER</button>
+
+  <hr />
+
+<ul>
+<li ng-repeat="persons in playernames  | filter :name|orderBy:'name' "> 
+<!-- track by index used to track the values usng index ,even with duplicate values
+without track by index list will be emepty -->
+{{persons.name | uppercase}}----{{persons.city}}
+
+</li>
+</ul>
+</div>
