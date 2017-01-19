@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>custom html elements</title>
+ <script src="js/angular.js"></script> 
+</head>
+<body ng-app="my2">
+<label for="checkbox"> 
+
+<input type="checkbox" id="checkbox" ng-model="visible"> Toggle
+
+</label>
+<div show="visible">
+<b>HELLO WORLD</b>
+
+</div>
+
+</body>
+<script type="text/javascript">
+var app=angular.module("my2",[])
+app.directive("show",function(){
+	return {
+		 link: function(scope, element, attributes) {
+		 scope.$watch(attributes.show, function(value){//watch callbacks whenever value changes
+		 element.css('display', value ? '' : 'none');//ternary operator to controll
+		 											//display css property of element
+		 });
+		 }
+		 };
+});
+
+
+
+</script>
+</html>

@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>assigning value from controller</title>
+<script src="js/angular.js"></script>
+<script type="text/javascript">
+var app=angular.module("my3",[]);
+/* app.controller("contr",[$scope,function($scope){
+	
+	$scope.value="sathish";
+}]); */
+app.controller('MyController1', ['$scope', function ($scope) {
+	$scope.value = "sathish";
+	 
+}]);
+
+
+</script>
+
+</head>
+<body ng-app="my3">
+<div ng-controller="MyController1">
+{{value}}
+
+</div>
+</body>
+</html>

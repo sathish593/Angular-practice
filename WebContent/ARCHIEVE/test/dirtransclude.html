@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+<script src="js/angular.js"></script>
+
+<script type="text/javascript">
+var app = angular.module("MyApp", []);
+
+app.directive("myWidget", function() {
+  return {
+    restrict: "E",
+    transclude: true,
+    template: '<div>' +
+    '<div><h3> Heading </h3></div><br>' +
+    '<div ng-transclude></div>' +
+  '</div>'
+
+  };
+});
+
+
+</script>
+</head>
+<body ng-app="MyApp">
+<my-widget>
+  <p>This is my paragraph text.</p>
+</my-widget>
+</body>
+</html>

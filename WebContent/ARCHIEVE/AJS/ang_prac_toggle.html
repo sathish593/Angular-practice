@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Angular practice ---</title>
+<script src="js/angular.js"></script>
+<script type="text/javascript">
+var demoapp=angular.module('demo',[]);
+demoapp.controller('toggler',function($scope){
+	$scope.visible=true;
+	$scope.toggle=function(){
+		$scope.visible=!$scope.visible;
+	};
+	$scope.name = ""; 
+	$scope.$watch("name", function(newValue, oldValue) { 
+		if ($scope.name.length > 0) { 
+			$scope.greeting = "Greetings " + $scope.name; 
+			}
+		});
+});
+</script>
+</head>
+<body ng-app="demo">
+<div>
+<div ng-controller="toggler" align="left" >
+<button  ng-click="toggle()">TOGGLE</button>
+<label for="checkbox"> <input id="checkbox" type="checkbox" ng-model="visible">Toggle me </label>
+<p ng-show="visible">HELLO WORLD!!!</p>
+<input type="text" ng-model="name" placeholder="Enter your name"> 
+
+<p>{{greeting}}</p>
+{{AngularJS}}
+
+</div>
+</div>
+</body>
+
+</html>

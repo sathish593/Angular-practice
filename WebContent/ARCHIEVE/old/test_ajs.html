@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html ng-app>
+<head >
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+<script src="js/angular.js"></script>
+</head>
+<body>
+	Enter ur name
+<input type="text" ng-model="name"/>
+ <h2 id="target">hello {{name}}</h2>
+ 
+ <div ng-controller="getall">
+ <button ng-click="get()">Add</button>
+ </div>
+ <div ng-repeat="item in list">
+ {{item.id}}
+{{item.name}}
+{{item.type}}
+{{item.cost}}
+{{item.vender}}
+ </div>
+ <script type="text/javascript">
+
+
+function getall($scope,$http)
+{
+	$scope.get=function(){
+	$http.get("getallRec.action").
+	success(function(data,status,header,config){
+		alert(data);
+			$scope.list=data;
+		})
+	.error(function(data,status,header,config){
+		alert(status);
+	});
+	}}
+ </script>
+</body>
+</html>

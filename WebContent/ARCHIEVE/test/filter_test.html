@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head >
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+<script src="js/angular.js"></script>
+<script type="text/javascript">
+ var app = angular.module("MyApp", []);
+
+ app.filter('checkmark', function() {
+ return function(input) {
+ return input ? '\u2713' : '\u2718';
+ };
+ }); 
+ 
+ describe('MyApp Tabs', function() {
+	  beforeEach(module('MyApp'));
+	 
+	  describe('checkmark', function() {
+	  it('should convert boolean values to unicode checkmark or cross',
+	  inject(function(checkmarkFilter) {
+	  expect(checkmarkFilter(true)).toBe('\u2713');
+	  expect(checkmarkFilter(false)).toBe('\u2718');
+	  }));
+	  });
+	  });
+ 
+ </script>
+ </head>
+ 
+<body ng-app="MyApp" ng-init="data = true">
+<p>{{ data | checkmark}}</p>
+ <p>{{ !data | checkmark}}</p>
+ </body>
+
+ </html>
+ 
+ 
+ 

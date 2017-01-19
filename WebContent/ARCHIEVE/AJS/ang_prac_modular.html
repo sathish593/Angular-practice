@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Angular practice 2</title>
+<script src="js/angular.js"></script>
+<script src="js/angular-route.js"></script>
+<script type="text/javascript">
+var demoapp= angular.module('demo',['ngRoute']);
+var controllers={};
+/* demoapp.controller('sampleCon',function($scope){
+	$scope.playernames=[
+	              {name:'sathish',city:'hyd'},
+	              {name:'sathish xyz',city:'pqr'},
+	              {name:'xyz abc',city:'pqr'},
+	              {name:'xyz def',city:'pqr'},
+	              {name:'ghi',city:'pqr'}
+	              ];
+}); */
+demoapp.factory('simpleFact',function(){
+	var playernames=[
+	              {name:'sachin',city:'mum'},
+	              {name:'rohit',city:'mum'},
+	              {name:'virat',city:'delhi'},
+	              {name:'dhoni',city:'ran'},
+	              {name:'raina',city:'UP'}
+	              ];
+	var factory={};
+	factory.getPlayers=function(){
+		return playernames;
+	};
+	return factory;
+});
+
+
+//can used to multiple controllers 
+controllers.samplePlayer= function($scope,simpleFact){
+	$scope.playernames=[];
+	init();
+	function init(){
+		$scope.playernames=simpleFact.getPlayers();
+	};
+	
+	$scope.addPlayer=function(){
+	$scope.playernames.push({name:$scope.newname,city:$scope.newcity});
+	}
+};
+controllers.samplePlayer1= function($scope){
+	$scope.playernames=[
+	              {name:'xyz',city:'hyd'},
+	              {name:'abc',city:'pqr'},
+	              {name:'pqr',city:'pqr'},
+	              {name:'rst',city:'pqr'},
+	              {name:'vuw',city:'pqr'}
+	              ];
+	$scope.addPlayer=function(){
+		$scope.playernames.push({name:$scope.newname,city:$scope.newcity});
+		}
+};	
+demoapp.controller(controllers);
+
+ demoapp.config(function($routeProvider){
+	
+	$routeProvider.when('/one',
+					{
+					controller: 'samplePlayer',
+					templateUrl:'partials/view1.html'
+					})
+				  .when('/sec',
+					{
+					  controller: 'samplePlayer1',
+					  templateUrl:'partials/view1.html'
+					  
+				  })
+				  .otherwise({redirectTo:'/one' });
+}); 
+</script>
+</head>
+
+<body ng-app="demo">
+Welcome
+<input type="text" ng-model="name">
+</br>
+</br>
+NAME you entered-- {{name}}
+
+
+
+<div ng-view></div>
+
+</body>
+
+</html>

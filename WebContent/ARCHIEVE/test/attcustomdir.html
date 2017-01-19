@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Passing Configuration Params Using HTML Attributes</title>
+<script src="js/angular.js"></script>
+
+<script type="text/javascript">
+var app = angular.module("MyApp", []);
+
+app.directive("myWidget", function() {
+  var linkFunction = function(scope, element, attributes) {
+    scope.text = attributes["myWidget"];
+  };
+
+  return {
+    restrict: "A",
+    template: "<p>{{text}}</p>",
+    link: linkFunction
+  };
+});
+
+</script>
+</head>
+<body ng-app="MyApp">
+ <div my-widget="Hello World">hi</div>
+ </body>
+</html>

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+
+ <head>
+ <meta charset='utf-8'>
+ <script src="js/angular.js"></script>
+<!--  <script src="js/angular-locale_de.js"></script> -->
+<script type="text/javascript">
+var app = angular.module("MyApp", []);
+
+ app.filter("exclude", function() {
+ return function(input, exclude) {
+ var result = [];
+ 
+ for (var i=0; i<input.length; i++) {
+ if (input[i] !== exclude) {
+ result.push(input[i]);
+ }
+ }
+
+ return result;
+ };
+ });
+
+</script>
+ </head>
+ <body ng-app="MyApp">
+ <ul ng-init="names = ['Peter', 'Anton', 'John']">
+ <li ng-repeat="name in names | exclude:'Peter' ">
+ <span>{{name}}</span>
+ </li>
+ </ul>
+ </body>
+
+</html>

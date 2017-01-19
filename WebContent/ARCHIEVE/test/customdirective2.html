@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>html snippet from directive</title>
+<script src="js/angular.js"></script>
+
+<script type="text/javascript">
+var app = angular.module("MyApp", []);
+
+app.directive("myWidget", function() {
+  return {
+    restrict: "E",
+    template: "<p>Hello World</p>"  //we can also return url using templateurl
+    								//and with replace:true we can replace <my-widget> with <p>
+    								//normally <p> will be child of <my-widget>
+  };
+});
+
+
+</script>
+</head>
+<body ng-app="MyApp">
+  <my-widget/>
+</body>
+</html>

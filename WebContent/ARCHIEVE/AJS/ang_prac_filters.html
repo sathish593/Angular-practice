@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Angular practice 2</title>
+<script src="js/angular.js"></script>
+<script type="text/javascript">
+
+
+
+</script>
+</head>
+
+<body ng-app>
+Welcome
+<input type="text" ng-model="name">
+</br>
+</br>
+NAME you entered-- {{name}}
+<div ng-init="names=[{name:'sathish',city:'hyd'},{name:'sathish xyz',city:'pqr'},{name:'xyz abc',city:'pqr'},{name:'xyz def',city:'pqr'},{name:'ghi',city:'pqr'}]">
+<ul>
+<li ng-repeat="persons in names  | filter :name|orderBy:'name' "> 
+<!-- track by index used to track the values usng index ,even with duplicate values
+without track by index list will be emepty -->
+{{persons.name | uppercase}}----{{persons.city}}
+
+</li>
+</ul>
+</div>
+<
+
+</body>
+
+</html>

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>ajax</title>
+<script type="text/javascript">
+function fetch()
+{
+	var req=new XMLHttpRequest();
+	req.open("GET", "text.html", true);
+	req.send();
+	req.onreadystatechange= function ()
+	{
+		if(req.readyState==4&&req.status==200)
+			{
+				var res=req.responseText;
+				//alert(res);
+				document.getElementById("div1").innerText=res;
+			}
+		
+	}
+
+	
+}
+
+</script>
+</head>
+<body>
+<B>welcome </B>
+<input type="button" onclick="fetch()" value="check"/>
+<div id="div1"></div>
+</body>
+</html>

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>respond to scope change</title>
+<script src="js/angular.js"></script> 
+</head>
+
+<body ng-app="my3">
+<div ng-controller="MyCtrl">
+ <input type="text" ng-model="name" placeholder="Enter your name">
+ <p>{{greeting}}</p>
+ </div>
+</body>
+<script type="text/javascript">
+var app=angular.module("my3",[]);
+
+app.controller('MyCtrl', ['$scope', function ($scope) {
+	$scope.name="";
+	$scope.$watch("name", function(newValue, oldValue) {
+		 if ($scope.name.length > 0) {
+		 $scope.greeting = "Greetings " + $scope.name+oldValue;
+		 }
+		 });
+	 
+}]);
+
+
+</script>
+</html>

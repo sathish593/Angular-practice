@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>increment value from controller</title>
+<script src="js/angular.js"></script>
+<script type="text/javascript">
+var app=angular.module("my3",[]);
+
+app.controller('MyController1', ['$scope', function ($scope) {
+	$scope.value = 1;
+	$scope.incrementValue=function(increment){
+		$scope.value =$scope.value+increment;
+		$scope.btnclick=function(){$scope.value=$scope.value+1;};
+	/* $scope.getincrval=function(){return $scope.value +1};	 */
+	};
+	 
+}]);
+
+
+</script>
+
+</head>
+<body ng-app="my3">
+<div ng-controller="MyController1">
+{{value}}
+<button ng-click="btnclick()">INC</button>
+<p ng-init="incrementValue(1)">{{value}}</p>
+<!-- <p> {{getincrval()}} </p> -->
+
+</div>
+</body>
+</html>

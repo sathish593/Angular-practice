@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+<!-- <script src="js/jquery-2.1.1.js"> -->
+	
+</script>
+<script type="text/javascript">
+$(function(){
+	
+	var name=$("#name");
+	var target=$("#target");
+	name.keyup(function(){
+		target.text('hello  ::'+name.val()); 
+	});
+});
+</script>
+</head>
+<body>
+	Enter ur name
+<input type="text" id="name"/>
+ <h2 id="target">hello</h2>
+</body>
+</html>

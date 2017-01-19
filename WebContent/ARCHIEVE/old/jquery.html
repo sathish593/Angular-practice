@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>jquery</title>
+<!-- <script type="text/javascript" src="js/jquery-2.1.1.js"></script> -->
+<script type="text/javascript">
+$(document).ready(function(){
+	$("#btn").click(function(){
+		//alert($("#div1").text());
+	$("#div1").text($("#text").val());
+		
+	});
+	$("#btn1").click(function(){
+		$("#div2").hide();	
+	});
+	$("#btn2").click(function(){
+		$("#div2").show();	
+	});
+	$("#btn3").click(function(){
+		$("#div2").toggle();	
+	});
+	$("#btn4").click(function(){
+		$("#div2").fadeOut(4000);	
+	});
+	$("#btn5").click(function(){
+		$("#div2").fadeIn(4000);	
+	});
+	$("#btn6").click(function(){
+		$("#div2").fadeToggle(4000);	
+	});
+	
+	$("#btn7").click(function(){
+	var objs=$(".square");
+	$.each(objs,function(id,obj){
+		if($(obj).text()=="H2")
+			{
+			$(obj).fadeToggle(3000);
+			}
+	});
+		
+	});
+	
+});
+
+</script>
+<style type="text/css">
+.square {
+	width: 100px;
+	height: 100px;
+	background: red;
+}
+</style>
+</head>
+<body>
+
+			<input type="button" value="ChangeText" id="btn"/><br>
+			<div id="div1">WELCOME DFHFDSJRTJ</div>
+ENTER TEXT  <input type="text" id="text"/>
+
+<input type="button" value="hide" id="btn1"/>
+<input type="button" value="show" id="btn2"/>
+<input type="button" value="toggle" id="btn3"/>
+<input type="button" value="fadeout" id="btn4"/>
+<input type="button" value="fadein" id="btn5"/>
+<input type="button" value="fadetoggle" id="btn6"/>
+<input type="button" value="animate" id="btn7"/><br>
+<div id="div2"class="square">H1</div> </br></br>
+<div id="div3"class="square">H2</div>
+</body>
+</html>

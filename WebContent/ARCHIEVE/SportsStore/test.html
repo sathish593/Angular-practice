@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>TEST
+</title>
+<style>
+#myDIV {
+    height: 250px;
+    width: 400px;
+    padding: 10px;
+    margin: 15px;
+    border: 5px solid red;
+    background-color: lightblue;
+    background-image: url("views/x.jpg");
+    background-repeat: repeat-x;
+}
+</style>
+<script>
+function myFunction() {
+	console.log("log::"+document.getElementById("myDIV").offsetWidth);
+	var x=document.body.clientWidth-20;
+	x=x+'px';
+	console.log(x);
+	document.getElementById("myDIV").style.width=x ;
+    var elmnt = document.getElementById("myDIV");
+    var txt = "Height including padding: " + elmnt.clientHeight + "px<br>";
+    txt += "Width including padding: " + elmnt.clientWidth + "px";
+    document.getElementById("demo").innerHTML = txt;
+}
+
+function ex(a,b)
+{
+	if(a>b)
+		{
+		return true;
+		}
+	else{
+		return false;
+	}}
+
+function ex1(c,d)
+{
+	if(ex(c,d))
+	{
+		alert("c is greater");
+		
+		}
+	else
+		{
+		alert("d is greater");
+		}
+}
+</script>
+</head>
+<body>
+
+<p>Click the button to get the height and width of div, including padding (using both clientHeight and clientWidth).</p>
+
+<button onclick="ex1(3,2)">Try it</button>
+
+<div id="myDIV">
+  <b>Information about this div:</b><br>
+  Height: 250px<br>
+  Width: 400px<br>
+  padding: 10px<br>
+  margin: 15px<br>
+  border: 5px<br>
+  <p id="demo"></p>
+</div>
+
+<table align="center">
+<thead><tr>
+<td>A</td>
+<td>B</td>
+<td>C</td>
+<td>D</td>
+<td>E</td>
+<td>F</td></tr>
+
+</thead>
+
+</table>
+
+<form action=""></form>
+</body>
+</html>

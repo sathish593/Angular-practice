@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Angular practice 2</title>
+<script src="js/angular.js"></script>
+<script type="text/javascript">
+
+
+
+</script>
+</head>
+
+<body ng-app>
+Welcome
+<input type="text" ng-model="name">
+</br>
+</br>
+NAME you entered-- {{name}}
+<div ng-init="names=['a','b','c','d','e','d']">
+<ul>
+<li ng-repeat="persons in names track by $index "> 
+<!-- track by index used to track the values usng index ,even with duplicate values
+without track by index list will be emepty -->
+{{persons | uppercase }}
+
+</li>
+</ul>
+</div>
+<table>
+<tr ng-repeat-start="persons in names track by $index">
+  <td>{{ persons }}</td>
+</tr>
+
+
+
+
+<
+<tr ng-repeat-end>
+  <td> {{ persons }} --end</td>
+  
+</tr>
+</table>
+
+</body>
+
+</html>
